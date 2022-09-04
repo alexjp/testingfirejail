@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-export PATH=$HOME/activities/bin:$HOME/bin:$PATH
+export PATH=$HOME/bin:$HOME/.local/share/kactivitymanagerd/activities/bin:$HOME/.local/bin:$PATH
