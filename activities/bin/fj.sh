@@ -3,8 +3,9 @@
 BIN="$(basename $0)"
 ACTIVITY=$(qdbus org.kde.ActivityManager /ActivityManager/Activities CurrentActivity)
 BASEFOLDER="/home/alex/.local/share/kactivitymanagerd/activities"
-BASEFOLDERBIN="$BASEFOLDER/bin"
+BASEFOLDERBIN="/home/alex/.local/share/kactivitymanagerd/activities/bin"
 DIRECTORY="$BASEFOLDER/$ACTIVITY"
+FOLDERBIN="$DIRECTORY/.local/bin"
 
 if [ ! -d "$DIRECTORY" ]; then
   /home/alex/.local/bin/fj.sync.sh "$DIRECTORY"
@@ -42,4 +43,4 @@ BINPATH=$(which "$BIN" -a | grep -v $BASEFOLDERBIN | head -n1)
 
 #env HOME="$DIRECTORY" $BINPATH $@
 #systemd-run --user -p StateDirectory="$ACTIVITY" -p Environment=HOME="$DIRECTORY" -p WorkingDirectory="$DIRECTORY" -t "$BINPATH" $@
-systemd-run --user -E HOME="$DIRECTORY" -p WorkingDirectory="$DIRECTORY" "$BINPATH" $@
+systemd-run --user -E HOME="$DIRECTORY" -E PATH=$FOLDERBIN:$PATH -p WorkingDirectory="$DIRECTORY" "$BINPATH" $@
