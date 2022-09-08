@@ -6,6 +6,8 @@ Add dotconfig/plasma-workspace/env files to ~/.config/plasma-workspace/env (this
 Copy activities to your $HOME, for example
 
 
-### To add an app (dolphin for ex), on .local/share/kactivitymanagerd/activities/bin do a `ln -s fj.sh dolphin`
+### To add an app (dolphin for ex):
+on .local/share/kactivitymanagerd/activities/bin do a `ln -s fj.sh dolphin`
 
-### To make one activity not be isolated, create a file in activities with a dot and the activities uuid ( ex: .local/share/kactivitymanagerd/activities/.b1633b30-2bc7-4830-bebb-98f4ad83cad1 )
+### To make one activity not be isolated:
+create a file in activities with a dot and the activities uuid ( ex: .local/share/kactivitymanagerd/activities/.b1633b30-2bc7-4830-bebb-98f4ad83cad1 )
