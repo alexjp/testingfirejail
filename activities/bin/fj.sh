@@ -40,5 +40,6 @@ fi
 #firejail --noprofile --private="$DIRECTORY" --join-or-start="$ACTIVITY" "$BIN" $@ 
 BINPATH=$(which "$BIN" -a | grep -v $BASEFOLDERBIN | head -n1)
 
-#echo env HOME="$DIRECTORY" $BINPATH $@
-systemd-run --user -p StateDirectory="$ACTIVITY" -p Environment=HOME="$DIRECTORY" -p WorkingDirectory="$DIRECTORY" -t "$BINPATH" $@
+#env HOME="$DIRECTORY" $BINPATH $@
+#systemd-run --user -p StateDirectory="$ACTIVITY" -p Environment=HOME="$DIRECTORY" -p WorkingDirectory="$DIRECTORY" -t "$BINPATH" $@
+systemd-run --user -E HOME="$DIRECTORY" -p WorkingDirectory="$DIRECTORY" "$BINPATH" $@
