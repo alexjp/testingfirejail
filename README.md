@@ -1,5 +1,6 @@
 # testingfirejail
 
+## Note: currently in latest version, not using firejail but $HOME manipulation
 
 Add dotconfig/plasma-workspace/env files to ~/.config/plasma-workspace/env (this will make the activity aware bin's be visible on plasma)
 
